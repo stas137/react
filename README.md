@@ -1,6 +1,5 @@
-# Стартовый шаблон React
+# React Start Template
 
-Включает в себя
 - react 18
 - typescript
 - storybook
