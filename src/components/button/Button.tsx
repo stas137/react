@@ -1,34 +1,103 @@
-import React, { FC } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import cn from 'clsx';
-import { sum } from './sum';
-import './button.css';
+import { Icon } from '../Icon/Icon';
 
-interface ButtonProps {
-  primary?: boolean;
-  backgroundColor?: string | null;
-  size?: string;
-  label: string;
+import './Button.css';
+import SpinnerIcon from '../../stories/assets/spinner.svg';
+
+type ButtonVariant = 'primary' | 'secondary' | 'text';
+type ButtonSize = 's' | 'm' | 'l';
+type ButtonColor = 'normal' | 'success' | 'error';
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  disabled?: boolean;
+  color?: ButtonColor;
+  addonLeft?: React.ReactNode;
+  addonRight?: React.ReactNode;
+  loading?: boolean;
+  fullWidth?: boolean;
+  square?: boolean;
+  width?: string;
 }
-/**
- * Primary UI component for user interaction
- */
 
-export const Button: FC<ButtonProps> = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+// eslint-disable-next-line react/display-name
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => {
+    const {
+      className,
+      variant = 'primary',
+      size = 'm',
+      color = 'normal',
+      disabled,
+      width,
+      addonLeft,
+      addonRight,
+      loading,
+      fullWidth,
+      square,
+      onClick,
+      children,
+      ...otherProps
+    } = props;
 
-  const onClick = () => {
-    sum(4, 5);
-  };
+    // const onClick = () => {
+    //   sum(4, 5);
+    // };
 
-  return (
-    <button
-      type="button"
-      className={cn('storybook-button', `storybook-button--${size}`, mode)}
-      style={{ backgroundColor: backgroundColor || 'green' }}
-      onClick={onClick}
-      {...props}
-    >
-      {label}
-    </button>
-  );
-};
+    if (loading) {
+      return (
+        <button
+          ref={ref}
+          type="button"
+          className={cn(
+            className,
+            'Button',
+            `Button--${size}`,
+            `Button--${variant}`,
+            `Button--${color}`,
+            fullWidth ? `Button--fullWidth` : '',
+            square ? `Button--square` : ''
+          )}
+          style={width ? { minWidth: width } : {}}
+          disabled={disabled}
+          onClick={onClick}
+          {...otherProps}
+        >
+          {loading && (
+            <Icon
+              className="Button--spinner"
+              Svg={SpinnerIcon}
+              width={20}
+              height={20}
+            />
+          )}
+        </button>
+      );
+    }
+
+    return (
+      <button
+        type="button"
+        className={cn(
+          'Button',
+          `Button--${size}`,
+          `Button--${variant}`,
+          `Button--${color}`,
+          fullWidth ? `Button--fullWidth` : '',
+          square ? `Button--square` : ''
+        )}
+        disabled={disabled}
+        style={width ? { minWidth: width } : {}}
+        onClick={onClick}
+        {...otherProps}
+      >
+        {addonLeft && <div className={cn('Button--addon')}>{addonLeft}</div>}
+        {children}
+        {addonRight && <div className={cn('Button--addon')}>{addonRight}</div>}
+      </button>
+    );
+  }
+);

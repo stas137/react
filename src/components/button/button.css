@@ -1,30 +1,72 @@
-.storybook-button {
+.Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 700;
     border: 0;
     border-radius: 3em;
     cursor: pointer;
-    display: inline-block;
-    line-height: 1;
+    gap: 8px;
+    line-height: 1.4;
+    transition: opacity 0.2s ease;
+    min-width: 100px;
 }
-.storybook-button--primary {
-    color: white;
+.Button:hover {
+    opacity: 0.8;
+}
+.Button--fullWidth {
+    width: 100%;
+}
+.Button--addon {
+    display: flex;
+}
+.Button--square {
+    border-radius: 0;
+}
+.Button--normal {
     background-color: #1ea7fd;
 }
-.storybook-button--secondary {
+.Button--success {
+    background-color: #0cb603;
+}
+.Button--error {
+    background-color: #f02727;
+}
+.Button--primary {
+    color: white;
+}
+.Button--secondary {
     color: #333;
     background-color: transparent;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
-.storybook-button--small {
+.Button--text {
+    color: #1ea7fd;
+    background-color: transparent;
+}
+.Button--s {
     font-size: 12px;
-    padding: 10px 16px;
+    padding: 10px 18px;
 }
-.storybook-button--medium {
+.Button--m {
     font-size: 14px;
-    padding: 11px 20px;
+    padding: 12px 20px;
 }
-.storybook-button--large {
+.Button--l {
     font-size: 16px;
-    padding: 12px 24px;
+    padding: 14px 24px;
+}
+.Button--spinner {
+    animation: button-spinner 0.75s linear infinite;
+}
+  
+@keyframes button-spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }

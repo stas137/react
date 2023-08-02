@@ -1,0 +1,39 @@
+.Input--wrapper {
+  display: flex;
+}
+
+.Input {
+  font-weight: 700;
+}
+
+.Input--s {
+  height: 17px;
+  font-size: 12px;
+}
+
+.Input--m {
+  height: 20px;
+  font-size: 14px;
+}
+
+.Input--l {
+  height: 23px;
+  font-size: 12px;
+}
+
+.Input-addon {
+  display: flex;
+}
+
+.Input--none {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  width: 25px;
+  text-align: center;
+}
+
+.Input--light {
+  color: white;
+}

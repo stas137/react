@@ -1,0 +1,20 @@
+.Header--wrapper {
+  background-color: aliceblue;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 24px;
+  height: 56px;
+  margin: 0 auto;
+  max-width: 1248px;
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
+}

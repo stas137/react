@@ -1,0 +1,10 @@
+.CartBody {
+  /* padding: 16px; */
+  /* background: #fff; */
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
