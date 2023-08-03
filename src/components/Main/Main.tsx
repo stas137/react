@@ -1,12 +1,12 @@
 import React from 'react';
 import cn from 'clsx';
-import { ProductCard } from '../ProductCard/ProductCard';
+import { ProductCard } from 'src/components/ProductCard/ProductCard';
 
 import './Main.css';
 
-import ProductImg1 from '../../stories/assets/product1.jpg';
-import ProductImg2 from '../../stories/assets/product2.jpg';
-import ProductImg3 from '../../stories/assets/product3.jpg';
+import ProductImg1 from 'src/stories/assets/product1.jpg';
+import ProductImg2 from 'src/stories/assets/product2.jpg';
+import ProductImg3 from 'src/stories/assets/product3.jpg';
 
 interface MainProps {
   className?: string;

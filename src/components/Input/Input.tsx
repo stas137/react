@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'clsx';
 
 import './Input.css';
-import { Icon } from '../Icon/Icon';
+import { Icon } from 'src/components/Icon/Icon';
 
 type InputSize = 's' | 'm' | 'l';
 type InputColor = 'light' | 'dark';

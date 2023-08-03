@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './logo.svg';
+import { Button } from 'src/components/Button/Button';
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <Button>Hello</Button>
       </header>
     </div>
   );

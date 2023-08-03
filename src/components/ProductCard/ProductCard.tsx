@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cn from 'clsx';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper/core';
-import { ButtonCart } from '../ButtonCart/ButtonCart';
+import { ButtonCart } from 'src/components/ButtonCart/ButtonCart';
 
 import 'swiper/swiper-bundle.min.css';
 // import 'swiper/swiper.min.css';

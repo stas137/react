@@ -1,10 +1,10 @@
 import React from 'react';
 import cn from 'clsx';
 
-import { Icon } from '../Icon/Icon';
+import { Icon } from 'src/components/Icon/Icon';
 import './Logo.css';
 
-import LogoIcon from '../../stories/assets/logo.svg';
+import LogoIcon from 'src/stories/assets/logo.svg';
 
 interface LogoProps {
   className?: string;

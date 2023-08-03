@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import cn from 'clsx';
-import { ButtonCart } from '../../ButtonCart/ButtonCart';
-import { Button } from '../../Button/Button';
+import { ButtonCart } from 'src/components/ButtonCart/ButtonCart';
+import { Button } from 'src/components/Button/Button';
 
 import './CartItem.css';
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import cn from 'clsx';
 
-import { Button } from '../Button/Button';
-import { Icon } from '../Icon/Icon';
-import { Logo } from '../Logo/Logo';
+import { Button } from 'src/components/Button/Button';
+import { Icon } from 'src/components/Icon/Icon';
+import { Logo } from 'src/components/Logo/Logo';
 
 import './Header.css';
 
-import CartIcon from '../../stories/assets/cart.svg';
+import CartIcon from 'src/stories/assets/cart.svg';
 
 interface HeaderProps {
   className?: string;

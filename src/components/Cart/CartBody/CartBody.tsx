@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'clsx';
-import { CartItem } from '../CartItem/CartItem';
+import { CartItem } from 'src/components/Cart/CartItem/CartItem';
 
 import './CartBody.css';
 
@@ -8,8 +8,8 @@ interface CartBodyProps {
   className?: string;
 }
 
-import ProductImg1 from '../../../stories/assets/product1.jpg';
-import ProductImg3 from '../../../stories/assets/product3.jpg';
+import ProductImg1 from 'src/stories/assets/product1.jpg';
+import ProductImg3 from 'src/stories/assets/product3.jpg';
 
 const cartItemTitle1 = 'Гель для стирки Ласка (Super)';
 const cartItemPrice1 = '1205';

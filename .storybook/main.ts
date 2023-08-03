@@ -1,4 +1,5 @@
 import { Configuration, RuleSetRule } from 'webpack';
+import path from 'path';
 
 export default {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -17,6 +18,11 @@ export default {
 
   webpackFinal: async (config: Configuration) => {
     if (config) {
+      config.resolve!.alias = {
+        ...config.resolve?.alias,
+        src: path.resolve(__dirname, '..', 'src'),
+      };
+
       if (config.module?.rules) {
         // eslint-disable-next-line no-param-reassign
         config.module.rules = config.module.rules.map(

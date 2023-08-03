@@ -1,8 +1,8 @@
 import React from 'react';
 import cn from 'clsx';
 
-import { Header } from '../Header/Header';
-import { Main } from '../Main/Main';
+import { Header } from 'src/components/Header/Header';
+import { Main } from 'src/components/Main/Main';
 
 import './Layout.css';
 

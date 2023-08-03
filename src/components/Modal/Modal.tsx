@@ -4,7 +4,7 @@ import { Icon } from '../Icon/Icon';
 
 import './Modal.css';
 
-import CartIcon from '../../stories/assets/close.svg';
+import CloseIcon from 'src/stories/assets/close.svg';
 
 interface ModalProps {
   className?: string;
@@ -22,7 +22,7 @@ export const Modal = (props: ModalProps) => {
           <span>{title}</span>
           <Icon
             className={cn('Modal--close-icon')}
-            Svg={CartIcon}
+            Svg={CloseIcon}
             clickable
             width={24}
             height={24}

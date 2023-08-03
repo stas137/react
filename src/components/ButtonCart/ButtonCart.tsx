@@ -1,12 +1,12 @@
 import React from 'react';
 import cn from 'clsx';
-import { Button } from '../Button/Button';
-import { Icon } from '../Icon/Icon';
-import { Input } from '../Input/Input';
+import { Button } from 'src/components/Button/Button';
+import { Icon } from 'src/components/Icon/Icon';
+import { Input } from 'src/components/Input/Input';
 
-import MinusIcon from '../../stories/assets/minus.svg';
-import PlusIcon from '../../stories/assets/plus.svg';
-import CartIcon from '../../stories/assets/cart.svg';
+import MinusIcon from 'src/stories/assets/minus.svg';
+import PlusIcon from 'src/stories/assets/plus.svg';
+import CartIcon from 'src/stories/assets/cart.svg';
 
 import './ButtonCart.css';
 
