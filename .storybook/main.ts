@@ -1,11 +1,18 @@
 import { Configuration, RuleSetRule } from 'webpack';
 import path from 'path';
+// import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
+    // '@storybook/addon-essentials',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        background: false,
+      },
+    },
     '@storybook/addon-interactions',
   ],
   framework: {
@@ -22,6 +29,8 @@ export default {
         ...config.resolve?.alias,
         src: path.resolve(__dirname, '..', 'src'),
       };
+
+      config.resolve?.extensions?.push('.ts', '.tsx');
 
       if (config.module?.rules) {
         // eslint-disable-next-line no-param-reassign
