@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import cn from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper/core';
 import { ButtonCart } from 'src/components/ButtonCart/ButtonCart';
@@ -32,6 +33,9 @@ export const ProductCard = (props: ProductCardProps) => {
     title,
     description,
   } = props;
+
+  const { i18n } = useTranslation();
+  const language = i18n.resolvedLanguage;
 
   const [count, setCount] = useState(0);
 
@@ -72,7 +76,12 @@ export const ProductCard = (props: ProductCardProps) => {
         )}
       >
         <div className={cn('ProductCard--price')}>
-          <span>{price}₽</span>
+          <span>
+            {language === 'ru'
+              ? price
+              : String((Number(price) / 90).toFixed(2))}
+            {language === 'ru' ? '₽' : '$'}
+          </span>
         </div>
         <div className={cn('ProductCard--title')}>
           <span>{title}</span>

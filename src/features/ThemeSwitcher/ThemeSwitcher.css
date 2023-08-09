@@ -1,0 +1,10 @@
+.ThemeSwitcher {
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  box-sizing: border-box;
+}

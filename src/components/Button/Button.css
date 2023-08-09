@@ -25,7 +25,7 @@
     border-radius: 0;
 }
 .Button--normal {
-    background-color: #1ea7fd;
+    background-color: var(--button-normal-background-color);
 }
 .Button--success {
     background-color: #0cb603;

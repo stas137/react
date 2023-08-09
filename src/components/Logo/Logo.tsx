@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'clsx';
 
 import { Icon } from 'src/components/Icon/Icon';
+
 import './Logo.css';
 
 import LogoIcon from 'src/stories/assets/logo.svg';
@@ -16,7 +17,14 @@ export const Logo = (props: LogoProps) => {
   return (
     <div className={cn('Logo--wrapper', className)}>
       <div className={cn('Logo', className)}>
-        <Icon Svg={LogoIcon} width={80} />
+        <Icon
+          Svg={LogoIcon}
+          width={80}
+          clickable
+          onClick={() => {
+            console.log('go home');
+          }}
+        />
       </div>
     </div>
   );

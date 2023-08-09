@@ -2,10 +2,10 @@ import React from 'react';
 import type { Meta } from '@storybook/react';
 
 import { Button } from './Button';
+import { Icon } from 'src/components/Icon/Icon';
 
 import LeftIcon from 'src/stories/assets/minus.svg';
 import RightIcon from 'src/stories/assets/plus.svg';
-import { Icon } from 'src/components/Icon/Icon';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',

@@ -103,6 +103,10 @@ module.exports = (_, args) => {
             'sass-loader',
           ],
         },
+        {
+          test: /\.(png|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
+        },
       ],
     },
     plugins: [

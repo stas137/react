@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  background-color: #1ea7fd;
+  background-color: var(--button-normal-background-color);
   font-size: 14px;
   padding: 12px 20px;
   border: 0;

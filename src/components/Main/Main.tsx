@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { ProductCard } from 'src/components/ProductCard/ProductCard';
 
 import './Main.css';
@@ -15,6 +16,13 @@ interface MainProps {
 export const Main = (props: MainProps) => {
   const { className } = props;
 
+  const { t } = useTranslation();
+  const category = t('household-chemicals-and-hygiene');
+  const title = t('laundry-gel-laska-super');
+  const description = t(
+    'restore-color-for-color-liquid-laundry-detergent-4l-66-washes'
+  );
+
   return (
     <div className={cn('Main--wrapper', className)}>
       <div className={cn('Main')}>
@@ -23,48 +31,48 @@ export const Main = (props: MainProps) => {
             size="s"
             images={ProductImg1}
             price="1205"
-            title="Гель для стирки Ласка (Super)"
-            description="Восстановление COLOR для цветного, жидкое средство для стирки 4л (66 стирок)"
+            title={title}
+            description={description}
           />
           <ProductCard
             size="s"
             images={ProductImg2}
             price="1405"
-            title="Гель для стирки Ласка (Super)"
-            description="Восстановление COLOR для цветного, жидкое средство для стирки 4л (66 стирок)"
+            title={title}
+            description={description}
           />
           <ProductCard
             size="s"
             images={ProductImg3}
             price="1605"
-            title="Гель для стирки Ласка (Super)"
-            description="Восстановление COLOR для цветного, жидкое средство для стирки 4л (66 стирок)"
+            title={title}
+            description={description}
           />
         </div>
         <div className={cn('Main--products')}>
           <ProductCard
             size="m"
             images={[ProductImg1, ProductImg2, ProductImg3]}
-            category="Бытовая химия и гигиена"
+            category={category}
             price="1205"
-            title="Гель для стирки Ласка (Super)"
-            description="Восстановление COLOR для цветного, жидкое средство для стирки 4л (66 стирок)"
+            title={title}
+            description={description}
           />
           <ProductCard
             size="m"
             images={[ProductImg1, ProductImg2, ProductImg3]}
-            category="Бытовая химия и гигиена"
+            category={category}
             price="1405"
-            title="Гель для стирки Ласка (Super)"
-            description="Восстановление COLOR для цветного, жидкое средство для стирки 4л (66 стирок)"
+            title={title}
+            description={description}
           />
           <ProductCard
             size="m"
             images={[ProductImg1, ProductImg2, ProductImg3]}
-            category="Бытовая химия и гигиена"
+            category={category}
             price="1605"
-            title="Гель для стирки Ласка (Super)"
-            description="Восстановление COLOR для цветного, жидкое средство для стирки 4л (66 стирок)"
+            title={title}
+            description={description}
           />
         </div>
       </div>

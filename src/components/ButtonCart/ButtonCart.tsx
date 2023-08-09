@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { Button } from 'src/components/Button/Button';
 import { Icon } from 'src/components/Icon/Icon';
 import { Input } from 'src/components/Input/Input';
@@ -20,7 +21,7 @@ interface ButtonCartProps {
 export const ButtonCart = (props: ButtonCartProps) => {
   const { className, countProducts, setCountProducts, onClick } = props;
 
-  // const [count, setCount] = useState(countProducts);
+  const { t } = useTranslation();
 
   if (countProducts) {
     return (
@@ -65,7 +66,7 @@ export const ButtonCart = (props: ButtonCartProps) => {
       onClick={onClick ? onClick : undefined}
     >
       <Button addonLeft={<CartIcon width={20} height={20} />}>
-        Add to cart
+        {t('add-to-cart')}
       </Button>
     </div>
   );

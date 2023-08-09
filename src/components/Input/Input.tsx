@@ -1,8 +1,8 @@
 import React from 'react';
 import cn from 'clsx';
+import { Icon } from 'src/components/Icon/Icon';
 
 import './Input.css';
-import { Icon } from 'src/components/Icon/Icon';
 
 type InputSize = 's' | 'm' | 'l';
 type InputColor = 'light' | 'dark';
@@ -107,6 +107,7 @@ export const Input = (props: InputProps) => {
     return (
       <div className={cn('Input--label')}>
         {/* <Text text={label} width={width} /> */}
+        {label}
         {input}
       </div>
     );

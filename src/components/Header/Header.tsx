@@ -4,6 +4,8 @@ import cn from 'clsx';
 import { Button } from 'src/components/Button/Button';
 import { Icon } from 'src/components/Icon/Icon';
 import { Logo } from 'src/components/Logo/Logo';
+import { ThemeSwitcher } from 'src/features/ThemeSwitcher/ThemeSwitcher';
+import { LanguageSwitcher } from 'src/features/LanguageSwitcher/LanguageSwitcher';
 
 import './Header.css';
 
@@ -20,6 +22,8 @@ export const Header = (props: HeaderProps) => {
     <header className={cn('Header--wrapper')}>
       <div className={cn('Header', className)}>
         <Logo />
+        <ThemeSwitcher className={cn('Header--theme')} />
+        <LanguageSwitcher />
         <Button
           addonLeft={<Icon Svg={CartIcon} width={20} height={20} />}
           width="auto"

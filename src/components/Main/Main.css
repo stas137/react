@@ -1,7 +1,7 @@
 .Main--wrapper {
   display: flex;
   flex-grow: 1;
-  background-color: rgb(248, 252, 255);
+  background-color: var(--main-background-color);
   margin-top: 56px;
 }
 

@@ -1,6 +1,9 @@
+import React from 'react';
 import type { Meta } from '@storybook/react';
 
 import { Layout } from './Layout';
+import { Header } from 'src/components/Header/Header';
+import { Main } from 'src/components/Main/Main';
 
 const meta: Meta<typeof Layout> = {
   title: 'Components/Layout',
@@ -15,5 +18,8 @@ const meta: Meta<typeof Layout> = {
 export default meta;
 
 export const LayoutStandard = {
-  args: {},
+  args: {
+    header: <Header />,
+    body: <Main />,
+  },
 };

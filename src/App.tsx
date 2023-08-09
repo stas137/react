@@ -1,20 +1,25 @@
 import React from 'react';
-import Logo from './logo.svg';
-import { Button } from 'src/components/Button/Button';
+import { I18nextProvider } from 'react-i18next';
+import { Layout } from 'src/components/Layout/Layout';
+import { Header } from 'src/components/Header/Header';
+import { Main } from 'src/components/Main/Main';
+import {
+  Theme,
+  ThemeProvider,
+} from 'src/providers/ThemeProvider/ThemeProvider';
+import i18n from './config/i18n/i18n';
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Logo className="App-logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <Button>Hello</Button>
-      </header>
-    </div>
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <I18nextProvider i18n={i18n}>
+        <ThemeProvider initialTheme={Theme.LIGHT_THEME}>
+          <Layout header={<Header />} body={<Main />} />
+        </ThemeProvider>
+      </I18nextProvider>
+    </React.Suspense>
   );
 }
 

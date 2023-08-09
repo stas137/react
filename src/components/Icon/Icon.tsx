@@ -54,5 +54,5 @@ export const Icon = (props: IconProps) => {
     );
   }
 
-  return <>{icon}</>;
+  return icon;
 };

@@ -15,7 +15,8 @@ export default meta;
 
 export const ModalStandard = {
   args: {
+    isOpen: true,
     title: 'Modal title',
-    content: 'Modal content',
+    children: 'Modal content',
   },
 };
