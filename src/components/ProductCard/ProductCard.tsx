@@ -11,7 +11,7 @@ import 'swiper/components/navigation/navigation.min.css';
 
 import './ProductCard.css';
 
-type ProductCardSize = 's' | 'm';
+export type ProductCardSize = 's' | 'm';
 
 interface ProductCardProps {
   className?: string;

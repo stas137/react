@@ -13,7 +13,6 @@ import ProductImg3 from 'src/stories/assets/product3.jpg';
 
 const cartItemTitle1 = 'Гель для стирки Ласка (Super)';
 const cartItemPrice1 = '1205';
-// const cartItemTitle2 =
 
 export const CartBody = (props: CartBodyProps) => {
   const { className } = props;

@@ -1,14 +1,18 @@
 .Main--wrapper {
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
   background-color: var(--main-background-color);
   margin-top: 56px;
 }
 
 .Main {
-  display: grid;
-  grid-template-rows: 410px 460px;
-  row-gap: 16px;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+  row-gap: 16px; */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   padding: 24px;
   margin: 0 auto;
   width: 100%;
@@ -25,5 +29,12 @@
 
 .Main--products {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
+  width: 100%;
+}
+
+.Main--trigger {
+  height: 30px;
+  margin: 5px;
 }
