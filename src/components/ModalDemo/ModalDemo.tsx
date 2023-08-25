@@ -1,8 +1,10 @@
 import React, { useCallback, useState } from 'react';
+
 import cn from 'clsx';
+
 import { Button } from '../Button/Button';
-import { Modal } from '../Modal/Modal';
 import { Input } from '../Input/Input';
+import { Modal } from '../Modal/Modal';
 
 import './ModalDemo.css';
 

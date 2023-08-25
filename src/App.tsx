@@ -1,12 +1,14 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import { Layout } from 'src/components/Layout/Layout';
+
 import { Header } from 'src/components/Header/Header';
+import { Layout } from 'src/components/Layout/Layout';
 import { Main } from 'src/components/Main/Main';
 import {
   Theme,
   ThemeProvider,
 } from 'src/providers/ThemeProvider/ThemeProvider';
+
 import i18n from './config/i18n/i18n';
 
 import './App.css';

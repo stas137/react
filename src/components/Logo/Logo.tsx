@@ -1,11 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import cn from 'clsx';
 
 import { Icon } from 'src/components/Icon/Icon';
+import LogoIcon from 'src/stories/assets/logo.svg';
 
 import './Logo.css';
-
-import LogoIcon from 'src/stories/assets/logo.svg';
 
 interface LogoProps {
   className?: string;
@@ -13,6 +14,8 @@ interface LogoProps {
 
 export const Logo = (props: LogoProps) => {
   const { className } = props;
+
+  const navigate = useNavigate();
 
   return (
     <div className={cn('Logo--wrapper', className)}>
@@ -23,6 +26,7 @@ export const Logo = (props: LogoProps) => {
           clickable
           onClick={() => {
             console.log('go home');
+            navigate('/');
           }}
         />
       </div>

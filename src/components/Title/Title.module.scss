@@ -1,0 +1,13 @@
+.Title {
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.required {
+  &::after {
+    content: '*';
+    display: inline-block;
+    padding-left: 4px;
+    font-size: 12px;
+  }
+}

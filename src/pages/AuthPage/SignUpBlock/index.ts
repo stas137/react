@@ -1,0 +1,1 @@
+export { SingUpBlock } from './SignUpBlock';

@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { Preview } from '@storybook/react';
 import { I18nextProvider } from 'react-i18next';
+import { MemoryRouter } from 'react-router-dom';
 
 import {
   Theme,
@@ -24,11 +25,13 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <Suspense fallback={<div>Loading...</div>}>
-        <I18nextProvider i18n={i18n}>
-          <ThemeProvider initialTheme={Theme.LIGHT_THEME}>
-            <Story />
-          </ThemeProvider>
-        </I18nextProvider>
+        <MemoryRouter initialEntries={['/']}>
+          <I18nextProvider i18n={i18n}>
+            <ThemeProvider initialTheme={Theme.LIGHT_THEME}>
+              <Story />
+            </ThemeProvider>
+          </I18nextProvider>
+        </MemoryRouter>
       </Suspense>
     ),
   ],

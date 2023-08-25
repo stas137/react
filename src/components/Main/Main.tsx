@@ -1,18 +1,19 @@
 import React, { useCallback, useRef, useState } from 'react';
-import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
+
+import cn from 'clsx';
+
 import {
   ProductCard,
   ProductCardSize,
 } from 'src/components/ProductCard/ProductCard';
+import { createRandomProduct, Product } from 'src/homeworks/ts1/3_write';
 import { useInfiniteScroll } from 'src/hooks/useInfiniteScroll';
-import { Product, createRandomProduct } from 'src/homeworks/ts1/3_write';
-
-import './Main.css';
-
 import ProductImg1 from 'src/stories/assets/product1.jpg';
 import ProductImg2 from 'src/stories/assets/product2.jpg';
 import ProductImg3 from 'src/stories/assets/product3.jpg';
+
+import './Main.css';
 
 interface MainProps {
   className?: string;
@@ -25,35 +26,32 @@ export const Main = (props: MainProps) => {
   const triggerRef = useRef<HTMLDivElement>(null);
 
   // const category = t('household-chemicals-and-hygiene');
-  const title = t('laundry-gel-laska-super');
-  const description = t(
-    'restore-color-for-color-liquid-laundry-detergent-4l-66-washes'
-  );
-
+  const name = 'laundry-gel-laska-super';
+  const desc = 'restore-color-for-color-liquid-laundry-detergent-4l-66-washes';
   const [smallProducts] = useState([
     {
       id: 'small-1',
       size: 's',
       images: ProductImg1,
       price: '1205',
-      title,
-      description,
+      name,
+      desc,
     },
     {
       id: 'small-2',
       size: 's',
       images: ProductImg2,
       price: '1405',
-      title,
-      description,
+      name,
+      desc,
     },
     {
       id: 'small-3',
       size: 's',
       images: ProductImg3,
       price: '1705',
-      title,
-      description,
+      name,
+      desc,
     },
   ]);
 
@@ -86,8 +84,8 @@ export const Main = (props: MainProps) => {
               size={product.size as ProductCardSize}
               images={product.images}
               price={product.price}
-              title={product.title}
-              description={product.description}
+              name={t(product.name)}
+              desc={t(product.desc)}
             />
           ))}
         </div>
@@ -99,8 +97,8 @@ export const Main = (props: MainProps) => {
               images={product.photo}
               price={String(product.price)}
               category={t(product.category.name)}
-              title={t(product.name)}
-              description={t(product.desc)}
+              name={t(product.name)}
+              desc={t(product.desc)}
             />
           ))}
         </div>

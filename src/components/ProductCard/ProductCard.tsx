@@ -1,38 +1,32 @@
 import React, { useState } from 'react';
-import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation } from 'swiper/core';
+
+import cn from 'clsx';
+
 import { ButtonCart } from 'src/components/ButtonCart/ButtonCart';
+import SwiperCore, { Navigation } from 'swiper/core';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/swiper-bundle.min.css';
 // import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
-
 import './ProductCard.css';
 
 export type ProductCardSize = 's' | 'm';
 
+export const RUB_USD = 90;
 interface ProductCardProps {
   className?: string;
   size?: ProductCardSize;
   category?: string;
   price?: string;
   images?: string | string[];
-  title?: string;
-  description?: string;
+  name?: string;
+  desc?: string;
 }
 
 export const ProductCard = (props: ProductCardProps) => {
-  const {
-    className,
-    size = 'm',
-    category,
-    price,
-    images,
-    title,
-    description,
-  } = props;
+  const { className, size = 'm', category, price, images, name, desc } = props;
 
   const { i18n } = useTranslation();
   const language = i18n.resolvedLanguage;
@@ -52,7 +46,7 @@ export const ProductCard = (props: ProductCardProps) => {
             <img
               className={cn('ProductCard--image')}
               src={images as string}
-              alt={title}
+              alt={name}
             />
           </div>
         ) : (
@@ -62,7 +56,7 @@ export const ProductCard = (props: ProductCardProps) => {
                 <img
                   className={cn('ProductCard--image')}
                   src={image}
-                  alt={title}
+                  alt={name}
                 />
               </SwiperSlide>
             ))}
@@ -79,15 +73,15 @@ export const ProductCard = (props: ProductCardProps) => {
           <span>
             {language === 'ru'
               ? price
-              : String((Number(price) / 90).toFixed(2))}
+              : String((Number(price) / RUB_USD).toFixed(2))}
             {language === 'ru' ? '₽' : '$'}
           </span>
         </div>
         <div className={cn('ProductCard--title')}>
-          <span>{title}</span>
+          <span>{name}</span>
         </div>
         <div className={cn('ProductCard--description')}>
-          <span>{description}</span>
+          <span>{desc}</span>
         </div>
         <div className={cn('ProductCard--category')}>
           <span>{category}</span>

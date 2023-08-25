@@ -1,6 +1,6 @@
 import React, {
-  FC,
   createContext,
+  FC,
   useContext,
   useEffect,
   useState,
@@ -35,8 +35,14 @@ export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
   );
 
   useEffect(() => {
-    document.body.className = theme;
+    const html = document.body.parentElement;
+
+    html.classList.add(theme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
+
+    return () => {
+      html.classList.remove(theme);
+    };
   }, [theme]);
 
   const value = { theme, setTheme };

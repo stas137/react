@@ -1,6 +1,5 @@
 import { Configuration, RuleSetRule } from 'webpack';
 import path from 'path';
-// import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -34,6 +33,31 @@ export default {
 
       if (config.module?.rules) {
         // eslint-disable-next-line no-param-reassign
+
+        config.module.rules.push({
+          test: /\.s[ac]ss$/i,
+          exclude: /node_modules/,
+          use: [
+            // isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+            // MiniCssExtractPlugin.loader,
+            // Creates `style` nodes from JS strings
+            'style-loader',
+            // Translates CSS into CommonJS
+            {
+              loader: 'css-loader',
+              options: {
+                modules: {
+                  auto: (resPath: string) =>
+                    Boolean(resPath.includes('.module.')),
+                  localIdentName: '[path][name]__[local]--[hash:base64:8]',
+                },
+              },
+            },
+            // Compiles Sass to CSS
+            'sass-loader',
+          ],
+        });
+
         config.module.rules = config.module.rules.map(
           (rule: RuleSetRule | '...') => {
             if (rule !== '...') {
