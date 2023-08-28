@@ -1,16 +1,19 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+
 import cn from 'clsx';
-import { Icon } from '../Icon/Icon';
-import { Portal } from '../Portal/Portal';
+
+import CloseIcon from 'src/stories/assets/close.svg';
 import { createContainer } from 'src/utils/createContainer/createContainer';
 import { destroyContainer } from 'src/utils/destroyContainer/destroyContainer';
-import CloseIcon from 'src/stories/assets/close.svg';
+
+import { Icon } from '../Icon/Icon';
+import { Portal } from '../Portal/Portal';
 
 import './Modal.css';
 
 interface ModalProps {
   className?: string;
-  title: string;
+  title?: string;
   children: React.ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
@@ -26,14 +29,20 @@ export const Modal = (props: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const html = document.body.parentElement;
+
     if (isOpen) {
       createContainer({ id: MODAL_CONTAINER_ID });
       setIsMounted(true);
+
+      html.classList.add('modal-open');
     }
 
     if (!isOpen) {
       setIsMounted(false);
       destroyContainer({ id: MODAL_CONTAINER_ID });
+
+      html.classList.remove('modal-open');
     }
   }, [isOpen]);
 
@@ -83,7 +92,7 @@ export const Modal = (props: ModalProps) => {
           }}
         >
           <div className={cn('Modal--header')}>
-            <span>{title || 'Default title'}</span>
+            {title && <span>{title}</span>}
             <Icon
               data-testid="modal-close-button"
               className={cn('Modal--close-icon')}
@@ -95,7 +104,7 @@ export const Modal = (props: ModalProps) => {
             />
           </div>
           <div className={cn('Modal--content')}>
-            <span>{children || 'Default content'}</span>
+            {children || 'Default content'}
           </div>
         </div>
       </div>

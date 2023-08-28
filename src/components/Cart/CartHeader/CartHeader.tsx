@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import cn from 'clsx';
 
 import './CartHeader.css';
@@ -10,5 +12,11 @@ interface CartHeaderProps {
 export const CartHeader = (props: CartHeaderProps) => {
   const { className } = props;
 
-  return <div className={cn('CartHeader', className)}>Cart</div>;
+  const { t } = useTranslation();
+
+  return (
+    <div className={cn('CartHeader', className)}>
+      {t('screens.CartScreen.name')}
+    </div>
+  );
 };

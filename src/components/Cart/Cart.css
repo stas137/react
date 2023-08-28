@@ -3,9 +3,9 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 24px;
+  /* padding: 24px; */
   box-sizing: border-box;
-  font-family: "Open Sans",arial,sans-serif;
+  font-family: 'Open Sans', arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
 }
@@ -16,7 +16,7 @@
   align-items: flex-start;
   gap: 16px;
   background: #f7f8f9;
-  width: 800px;
+  width: 100%;
   min-height: 360px;
   border-radius: 1em;
   padding: 16px;

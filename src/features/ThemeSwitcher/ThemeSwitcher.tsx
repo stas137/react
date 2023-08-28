@@ -1,12 +1,13 @@
 import React from 'react';
+
 import cn from 'clsx';
+
 import { Icon } from 'src/components/Icon/Icon';
 import { Theme, useTheme } from 'src/providers/ThemeProvider/ThemeProvider';
+import DarkIcon from 'src/stories/assets/dark.svg';
+import LightIcon from 'src/stories/assets/light.svg';
 
 import './ThemeSwitcher.css';
-
-import LightIcon from 'src/stories/assets/light.svg';
-import DarkIcon from 'src/stories/assets/dark.svg';
 
 interface ThemeSwitcherProps {
   className?: string;

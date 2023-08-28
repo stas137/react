@@ -1,9 +1,11 @@
 import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+
 import cn from 'clsx';
+
 import { Icon } from 'src/components/Icon/Icon';
+import SpinnerIcon from 'src/stories/assets/spinner.svg';
 
 import './Button.css';
-import SpinnerIcon from 'src/stories/assets/spinner.svg';
 
 type ButtonVariant = 'primary' | 'secondary' | 'text';
 type ButtonSize = 's' | 'm' | 'l';

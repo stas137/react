@@ -1,12 +1,13 @@
 import React from 'react';
-import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
+
+import cn from 'clsx';
+
 import { Icon } from 'src/components/Icon/Icon';
+import EnIcon from 'src/stories/assets/en.svg';
+import RuIcon from 'src/stories/assets/ru.svg';
 
 import './LanguageSwitcher.css';
-
-import RuIcon from 'src/stories/assets/ru.svg';
-import EnIcon from 'src/stories/assets/en.svg';
 
 interface LanguageSwitcherProps {
   className?: string;

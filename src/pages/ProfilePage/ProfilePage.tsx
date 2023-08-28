@@ -9,7 +9,7 @@ import s from './ProfilePage.module.scss';
 export const ProfilePage: FC = () => {
   const { t } = useTranslation();
   return (
-    <Page title={t`screens.ProfileScreen.title`}>
+    <Page title={t`screens.ProfileScreen.title`} className={s.top60}>
       <SettingsBlock className={s.block} />
     </Page>
   );

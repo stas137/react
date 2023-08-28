@@ -1,72 +1,72 @@
 .Button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    border: 0;
-    border-radius: 3em;
-    cursor: pointer;
-    gap: 8px;
-    line-height: 1.4;
-    transition: opacity 0.2s ease;
-    min-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 3em;
+  cursor: pointer;
+  gap: 8px;
+  line-height: 1.4;
+  transition: opacity 0.2s ease;
+  min-width: 100px;
 }
 .Button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 .Button--fullWidth {
-    width: 100%;
+  width: 100%;
 }
 .Button--addon {
-    display: flex;
+  display: flex;
 }
 .Button--square {
-    border-radius: 0;
+  border-radius: 0;
 }
 .Button--normal {
-    background-color: var(--button-normal-background-color);
+  background-color: var(--button-normal-background-color);
 }
 .Button--success {
-    background-color: #0cb603;
+  background-color: #0cb603;
 }
 .Button--error {
-    background-color: #f02727;
+  background-color: #f02727;
 }
 .Button--primary {
-    color: white;
+  color: white;
 }
 .Button--secondary {
-    color: #333;
-    background-color: transparent;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  color: #333;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
 .Button--text {
-    color: #1ea7fd;
-    background-color: transparent;
+  color: #1ea7fd;
+  background-color: transparent;
 }
 .Button--s {
-    font-size: 12px;
-    padding: 10px 18px;
+  font-size: 12px;
+  padding: 10px;
 }
 .Button--m {
-    font-size: 14px;
-    padding: 12px 20px;
+  font-size: 14px;
+  padding: 12px;
 }
 .Button--l {
-    font-size: 16px;
-    padding: 14px 24px;
+  font-size: 16px;
+  padding: 14px;
 }
 .Button--spinner {
-    animation: button-spinner 0.75s linear infinite;
+  animation: button-spinner 0.75s linear infinite;
 }
-  
-@keyframes button-spinner {
-    from {
-        transform: rotate(0deg);
-    }
 
-    to {
-        transform: rotate(360deg);
-    }
+@keyframes button-spinner {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
