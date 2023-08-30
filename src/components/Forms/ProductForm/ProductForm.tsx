@@ -64,7 +64,7 @@ export const ProductForm = memo<ProductFormProps>(
         <OldPriceField
           onBlur={handleBlur}
           onChange={(name, data) => {
-            setFieldValue(name, Number(data));
+            setFieldValue(name, data < 0 ? 0 : Number(data));
           }}
           value={String(values.oldPrice)}
           errors={errors.oldPrice}
@@ -75,7 +75,7 @@ export const ProductForm = memo<ProductFormProps>(
         <PriceField
           onBlur={handleBlur}
           onChange={(name, data) => {
-            setFieldValue(name, Number(data));
+            setFieldValue(name, data < 0 ? 0 : Number(data));
           }}
           value={String(values.price)}
           errors={errors.price}
