@@ -19,6 +19,8 @@ import { Title } from 'src/components/Title';
 // import { createErrorHandlers } from 'src/utils/createErrorHandlers';
 import { isNotDefinedString } from 'src/utils/validations/validations';
 
+import { ProfileType } from '../SettingsBlock/SettingsBlock';
+
 // import {
 //   UPDATE_PROFILE,
 //   UpdateProfileResponse,
@@ -28,21 +30,14 @@ import s from './ProfileCompletedForm.module.scss';
 
 export type ProfileCompletedFormProps = {
   className?: string;
+  profile: ProfileType;
 };
 
 export const ProfileCompletedForm = memo<ProfileCompletedFormProps>(
-  ({ className }: ProfileCompletedFormProps) => {
+  ({ className, profile }: ProfileCompletedFormProps) => {
     // const profile = useSelector(profileSelectors.get);
 
     const { t } = useTranslation();
-
-    const profile = useMemo(
-      () => ({
-        name: 'Ivan',
-        about: 'About',
-      }),
-      []
-    );
 
     // const [update, { loading }] = useMutation<
     //   UpdateProfileResponse,
@@ -70,8 +65,8 @@ export const ProfileCompletedForm = memo<ProfileCompletedFormProps>(
 
       return {
         initialValues: {
-          name: profile?.name,
-          about: profile?.about,
+          name: profile.name,
+          about: profile.about,
         },
         onSubmit: (values, { setErrors }) => {
           // update({
@@ -104,10 +99,11 @@ export const ProfileCompletedForm = memo<ProfileCompletedFormProps>(
       onSubmit,
       validate,
     });
+
     const { submitForm, setValues } = formManager;
 
     useEffect(() => {
-      setValues({ name: profile?.name, about: profile?.about });
+      setValues({ name: profile.name, about: profile.about });
     }, [profile, setValues]);
 
     return (

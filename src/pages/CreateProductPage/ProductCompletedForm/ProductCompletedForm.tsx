@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import cn from 'clsx';
 
-import type { UploadFile } from 'antd';
 import { Button } from 'antd';
 
 import type { FormikConfig } from 'formik';
@@ -16,41 +15,18 @@ import {
 import { Title } from 'src/components/Title';
 import { isNotDefinedString } from 'src/utils/validations/validations';
 
+import { ProductType } from '../CreateProductPage';
+
 import s from './ProductCompletedForm.module.scss';
 
 export type ProductCompletedFormProps = {
   className?: string;
+  product: ProductType;
 };
 
 export const ProductCompletedForm = memo<ProductCompletedFormProps>(
-  ({ className }: ProductCompletedFormProps) => {
+  ({ className, product }: ProductCompletedFormProps) => {
     const { t } = useTranslation();
-
-    const product = useMemo(
-      (): {
-        name: string;
-        photo: UploadFile[];
-        description?: string;
-        oldPrice?: number;
-        price: number;
-        category: string;
-      } => ({
-        name: '',
-        photo: [
-          // {
-          //   uid: 'product-img-11',
-          //   name: 'product-image-11.png',
-          //   status: 'done',
-          //   url: ProductImg1,
-          // },
-        ],
-        description: '',
-        oldPrice: 0,
-        price: 0,
-        category: '',
-      }),
-      []
-    );
 
     const { onSubmit, validate, initialValues } = useMemo<
       Pick<

@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import cn from 'clsx';
 
-import type { UploadFile } from 'antd';
 import { Button } from 'antd';
 
 import type { FormikConfig } from 'formik';
@@ -14,45 +13,20 @@ import {
   ProductFormValues,
 } from 'src/components/Forms/ProductForm';
 import { Title } from 'src/components/Title';
-import ProductImg1 from 'src/stories/assets/product1.jpg';
 import { isNotDefinedString } from 'src/utils/validations/validations';
+
+import { ProductType } from '../EditProductPage';
 
 import s from './ProductCompletedForm.module.scss';
 
 export type ProductCompletedFormProps = {
   className?: string;
+  product: ProductType;
 };
 
 export const ProductCompletedForm = memo<ProductCompletedFormProps>(
-  ({ className }: ProductCompletedFormProps) => {
+  ({ className, product }: ProductCompletedFormProps) => {
     const { t } = useTranslation();
-
-    const product = useMemo(
-      (): {
-        name: string;
-        photo: UploadFile[];
-        description?: string;
-        oldPrice?: number;
-        price: number;
-        category: string;
-      } => ({
-        name: 'Laundry gel Laska (Super)',
-        photo: [
-          {
-            uid: 'product-img-11',
-            name: 'product-image-11.png',
-            status: 'done',
-            url: ProductImg1,
-          },
-        ],
-        description:
-          'Restore COLOR for color, liquid laundry detergent 4L (66 washes)',
-        oldPrice: 1000,
-        price: 1250,
-        category: 'notebook',
-      }),
-      []
-    );
 
     const { onSubmit, validate, initialValues } = useMemo<
       Pick<
