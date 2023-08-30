@@ -5,7 +5,7 @@ import cn from 'clsx';
 import { Icon } from 'src/components/Icon/Icon';
 import SpinnerIcon from 'src/stories/assets/spinner.svg';
 
-import './Button.css';
+import s from './Button.module.scss';
 
 type ButtonVariant = 'primary' | 'secondary' | 'text';
 type ButtonSize = 's' | 'm' | 'l';
@@ -25,7 +25,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   width?: string;
 }
 
-// eslint-disable-next-line react/display-name
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     const {
@@ -45,10 +44,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ...otherProps
     } = props;
 
-    // const onClick = () => {
-    //   sum(4, 5);
-    // };
-
     if (loading) {
       return (
         <button
@@ -56,12 +51,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           type="button"
           className={cn(
             className,
-            'Button',
-            `Button--${size}`,
-            `Button--${variant}`,
-            `Button--${color}`,
-            fullWidth ? `Button--fullWidth` : '',
-            square ? `Button--square` : ''
+            s.Button,
+            s[size],
+            s[variant],
+            s[color],
+            fullWidth ? s.fullWidth : '',
+            square ? s.square : ''
           )}
           style={width ? { minWidth: width } : {}}
           disabled={disabled}
@@ -70,7 +65,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         >
           {loading && (
             <Icon
-              className="Button--spinner"
+              className={s.ButtonSpinner}
               Svg={SpinnerIcon}
               width={20}
               height={20}
@@ -85,22 +80,24 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         type="button"
         className={cn(
           className,
-          'Button',
-          `Button--${size}`,
-          `Button--${variant}`,
-          `Button--${color}`,
-          fullWidth ? `Button--fullWidth` : '',
-          square ? `Button--square` : ''
+          s.Button,
+          s[size],
+          s[variant],
+          s[color],
+          fullWidth ? s.fullWidth : '',
+          square ? s.square : ''
         )}
         disabled={disabled}
         style={width ? { minWidth: width } : {}}
         onClick={onClick}
         {...otherProps}
       >
-        {addonLeft && <div className={cn('Button--addon')}>{addonLeft}</div>}
+        {addonLeft && <div className={cn(s.addon)}>{addonLeft}</div>}
         {children}
-        {addonRight && <div className={cn('Button--addon')}>{addonRight}</div>}
+        {addonRight && <div className={cn(s.addon)}>{addonRight}</div>}
       </button>
     );
   }
 );
+
+Button.displayName = 'Button';

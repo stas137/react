@@ -1,9 +1,12 @@
-.Main--wrapper {
+@import '../../mixins';
+
+.MainWrapper {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  background-color: var(--main-background-color);
   margin-top: 56px;
+
+  @include theme(background-color, bg);
 }
 
 .Main {
@@ -27,14 +30,14 @@
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.Main--products {
+.MainProducts {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   width: 100%;
 }
 
-.Main--trigger {
+.MainTrigger {
   height: 30px;
   margin: 5px;
 }

@@ -5,9 +5,9 @@ import cn from 'clsx';
 
 import { Button } from 'src/components/Button/Button';
 import { ButtonCart } from 'src/components/ButtonCart/ButtonCart';
-import { RUB_USD } from 'src/components/ProductCard/ProductCard';
+import { RUB_USD } from 'src/utils/consts/consts';
 
-import './CartItem.css';
+import s from './CartItem.module.scss';
 
 interface CartItemProps {
   className?: string;
@@ -26,14 +26,14 @@ export const CartItem = (props: CartItemProps) => {
   const [countProducts, setCountProducts] = useState(count);
 
   return (
-    <div className={cn('CartItem', className)}>
-      <div className={cn('CartItem--wrapper-image')}>
-        <img className={cn('CartItem--image')} src={img} alt={name} />
+    <div className={cn(s.CartItem, className)}>
+      <div className={cn(s.CartItemWrapperImage)}>
+        <img className={cn(s.CartItemImage)} src={img} alt={name} />
       </div>
-      <div className={cn('CartItem--title')}>
+      <div className={cn(s.CartItemTitle)}>
         <span>{name}</span>
       </div>
-      <div className={cn('CartItem--price')}>
+      <div className={cn(s.CartItemPrice)}>
         <span>
           {language === 'ru'
             ? price
@@ -41,10 +41,10 @@ export const CartItem = (props: CartItemProps) => {
           {language === 'ru' ? '₽' : '$'}
         </span>
       </div>
-      <div className={cn('CartItem--delete-button')}>
+      <div className={cn(s.CartItemDeleteButton)}>
         <Button>{t('screens.CartScreen.delete')}</Button>
       </div>
-      <div className={cn('CartItem--count')}>
+      <div className={cn(s.CartItemCount)}>
         <ButtonCart
           countProducts={countProducts}
           setCountProducts={setCountProducts}

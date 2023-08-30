@@ -1,19 +1,22 @@
+@import '../../mixins';
+
 .ButtonCart {
   display: flex;
 }
 
-.ButtonCart--controls {
+.ButtonCartControls {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  background-color: var(--button-normal-background-color);
   font-size: 14px;
   padding: 12px 20px;
   border: 0;
   border-radius: 3em;
+
+  @include theme(background-color, accent);
 }
 
-.ButtonCart--controls button {
+.ButtonCartControls button {
   color: white;
 }

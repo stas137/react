@@ -1,4 +1,6 @@
-.Cart--wrapper {
+@import '../../mixins';
+
+.CartWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,10 +17,12 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
-  background: #f7f8f9;
   width: 100%;
   min-height: 360px;
   border-radius: 1em;
   padding: 16px;
   box-sizing: border-box;
+  
+  /* background: #f7f8f9; */
+  @include theme(background-color, bg);
 }

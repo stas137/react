@@ -2,7 +2,7 @@ import type { Meta } from '@storybook/react';
 
 import { ModalDemo } from './ModalDemo';
 
-import 'src/index.css';
+import 'src/index.scss';
 
 const meta: Meta<typeof ModalDemo> = {
   title: 'Components/ModalDemo',

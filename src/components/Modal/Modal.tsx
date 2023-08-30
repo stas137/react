@@ -9,7 +9,7 @@ import { destroyContainer } from 'src/utils/destroyContainer/destroyContainer';
 import { Icon } from '../Icon/Icon';
 import { Portal } from '../Portal/Portal';
 
-import './Modal.css';
+import s from './Modal.module.scss';
 
 interface ModalProps {
   className?: string;
@@ -35,14 +35,14 @@ export const Modal = (props: ModalProps) => {
       createContainer({ id: MODAL_CONTAINER_ID });
       setIsMounted(true);
 
-      html.classList.add('modal-open');
+      html.classList.add(s.ModalOpen);
     }
 
     if (!isOpen) {
       setIsMounted(false);
       destroyContainer({ id: MODAL_CONTAINER_ID });
 
-      html.classList.remove('modal-open');
+      html.classList.remove(s.ModalOpen);
     }
   }, [isOpen]);
 
@@ -82,20 +82,20 @@ export const Modal = (props: ModalProps) => {
     <Portal id={MODAL_CONTAINER_ID}>
       <div
         data-testid="modal-wrapper"
-        className={cn('Modal--wrapper')}
+        className={cn(s.ModalWrapper)}
         ref={modalRef}
       >
         <div
-          className={cn('Modal', className)}
+          className={cn(s.Modal, className)}
           onClick={(e) => {
             e.stopPropagation();
           }}
         >
-          <div className={cn('Modal--header')}>
+          <div className={cn(s.ModalHeader)}>
             {title && <span>{title}</span>}
             <Icon
               data-testid="modal-close-button"
-              className={cn('Modal--close-icon')}
+              className={cn(s.ModalCloseIcon)}
               Svg={CloseIcon}
               clickable
               width={24}
@@ -103,7 +103,7 @@ export const Modal = (props: ModalProps) => {
               onClick={handleClose}
             />
           </div>
-          <div className={cn('Modal--content')}>
+          <div className={cn(s.ModalContent)}>
             {children || 'Default content'}
           </div>
         </div>

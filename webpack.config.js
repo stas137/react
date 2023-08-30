@@ -3,9 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const port = 2233;
 const dist = path.join(__dirname, 'dist');
+const distLocales = path.join(__dirname, 'dist', 'locales');
+const locales = path.join(__dirname, 'public', 'locales');
 const src = path.join(__dirname, 'src');
 const host = 'localhost';
 
@@ -123,6 +126,14 @@ module.exports = (_, args) => {
         typescript: {
           configFile: path.join(__dirname, 'tsconfig.json'),
         },
+      }),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: locales,
+            to: distLocales,
+          },
+        ],
       }),
     ],
   };

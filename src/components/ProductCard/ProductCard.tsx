@@ -4,17 +4,21 @@ import { useTranslation } from 'react-i18next';
 import cn from 'clsx';
 
 import { ButtonCart } from 'src/components/ButtonCart/ButtonCart';
+import { RUB_USD } from 'src/utils/consts/consts';
 import SwiperCore, { Navigation } from 'swiper/core';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/swiper-bundle.min.css';
 // import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
-import './ProductCard.css';
+import './myswiper.css';
+import s from './ProductCard.module.scss';
 
 export type ProductCardSize = 's' | 'm';
+interface ImageProps {
+  images: string | string[];
+}
 
-export const RUB_USD = 90;
 interface ProductCardProps {
   className?: string;
   size?: ProductCardSize;
@@ -36,40 +40,46 @@ export const ProductCard = (props: ProductCardProps) => {
   // install Swiper modules
   SwiperCore.use([Navigation]);
 
+  const MySwiper: React.FC<ImageProps> = ({ images }: ImageProps) => {
+    if (images.length > 1) {
+      return (
+        <Swiper navigation className="mySwiper">
+          {(images as string[]).map((image) => (
+            <SwiperSlide key={image}>
+              <img className={cn(s.ProductCardImage)} src={image} alt={name} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      );
+    }
+
+    return (
+      <img className={cn(s.ProductCardImage)} src={images[0]} alt={name} />
+    );
+  };
+
   return (
-    <div
-      className={cn('ProductCard--wrapper', `ProductCard--${size}`, className)}
-    >
-      <div className={cn('ProductCard--wrapper-image')}>
+    <div className={cn(s.ProductCardWrapper, s[size], className)}>
+      <div className={cn(s.ProductCardWrapperImage)}>
         {size === 's' ? (
-          <div className={cn('ProductCard--container-image')}>
+          <div className={cn(s.ProductCardContainerImage)}>
             <img
-              className={cn('ProductCard--image')}
+              className={cn(s.ProductCardImage)}
               src={images as string}
               alt={name}
             />
           </div>
         ) : (
-          <Swiper navigation className="mySwiper">
-            {(images as string[]).map((image) => (
-              <SwiperSlide key={image}>
-                <img
-                  className={cn('ProductCard--image')}
-                  src={image}
-                  alt={name}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <MySwiper images={images} />
         )}
       </div>
       <div
         className={cn(
-          'ProductCard--wrapper-info',
-          `ProductCard--wrapper-info-${size}`
+          s.ProductCardWrapperInfo,
+          size === 'm' ? s.ProductCardWrapperInfoM : ''
         )}
       >
-        <div className={cn('ProductCard--price')}>
+        <div className={cn(s.ProductCardPrice)}>
           <span>
             {language === 'ru'
               ? price
@@ -77,16 +87,16 @@ export const ProductCard = (props: ProductCardProps) => {
             {language === 'ru' ? '₽' : '$'}
           </span>
         </div>
-        <div className={cn('ProductCard--title')}>
+        <div className={cn(s.ProductCardTitle)}>
           <span>{name}</span>
         </div>
-        <div className={cn('ProductCard--description')}>
+        <div className={cn(s.ProductCardDescription)}>
           <span>{desc}</span>
         </div>
-        <div className={cn('ProductCard--category')}>
+        <div className={cn(s.ProductCardCategory)}>
           <span>{category}</span>
         </div>
-        <div className={cn('ProductCard--cart')}>
+        <div className={cn(s.ProductCardCart)}>
           <ButtonCart
             countProducts={count}
             setCountProducts={(val) => setCount(val)}

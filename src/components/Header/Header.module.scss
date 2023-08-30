@@ -1,10 +1,14 @@
-.Header--wrapper {
-  background-color: var(--header-background-color);
+@import '../../mixins';
+@import '../../common';
+
+.HeaderWrapper {
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   z-index: 2;
+
+  @include theme(background-color, mainBg);
 }
 
 .Header {
@@ -13,14 +17,13 @@
   justify-content: flex-start;
   gap: 8px;
   padding: 8px 24px;
-  height: 56px;
+  height: $headerHeight;
   margin: 0 auto;
   max-width: 1248px;
-  flex-grow: 1;
   width: 100%;
   box-sizing: border-box;
 }
 
-.Header--theme {
+.HeaderTheme {
   margin-left: auto;
 }

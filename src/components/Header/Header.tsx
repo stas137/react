@@ -15,7 +15,7 @@ import PlusIcon from 'src/stories/assets/plus.svg';
 import { Modal } from '../Modal';
 import { ProfileSwitcher } from '../ProfileSwitcher';
 
-import './Header.css';
+import s from './Header.module.scss';
 
 interface HeaderProps {
   className?: string;
@@ -35,10 +35,10 @@ export const Header = (props: HeaderProps) => {
   const content = <CreateProductPage />;
 
   return (
-    <header className={cn('Header--wrapper')}>
-      <div className={cn('Header', className)}>
+    <header className={cn(s.HeaderWrapper)}>
+      <div className={cn(s.Header, className)}>
         <Logo />
-        <ProfileSwitcher className={cn('Header--theme')} />
+        <ProfileSwitcher className={cn(s.HeaderTheme)} />
         <ThemeSwitcher />
         <LanguageSwitcher />
         <Button

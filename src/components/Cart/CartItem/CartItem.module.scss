@@ -1,39 +1,43 @@
+@import '../../../mixins';
+
 .CartItem {
   padding: 16px;
-  background: #fff;
   width: 100%;
   box-sizing: border-box;
   border-radius: 16px;
   display: flex;
   align-items: center;
   gap: 16px;
+
+  /* ackground: #fff; */
+  @include theme(background-color, mainBg);
 }
 
-.CartItem--wrapper-image {
+.CartItemWrapperImage {
   width: 160px;
   height: 160px;
 }
 
-.CartItem--image {
+.CartItemImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 1em;
 }
 
-.CartItem--price {
+.CartItemPrice {
   padding: 8px;
   background: green;
   border-radius: 10px;
   color: #fff;
 }
 
-.CartItem--delete-button {
+.CartItemDeleteButton {
   margin-left: auto;
 }
 
-.CartItem--title,
-.CartItem--price {
-  font-family: "Open Sans",arial,sans-serif;
+.CartItemTitle,
+.CartItemPrice {
+  font-family: 'Open Sans', arial, sans-serif;
   font-size: 14px;
 }

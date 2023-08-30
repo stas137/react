@@ -7,7 +7,7 @@ import { InputNumber } from 'antd';
 
 import { FormikHandlers } from 'formik/dist/types';
 import { FormItem } from 'src/components/FormItem';
-import { RUB_USD } from 'src/components/ProductCard/ProductCard';
+import { RUB_USD } from 'src/utils/consts/consts';
 import { getValidates } from 'src/utils/validations/validations';
 
 import { ProductFormProps } from '../types';

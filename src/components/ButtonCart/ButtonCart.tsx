@@ -1,15 +1,16 @@
 import React from 'react';
-import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
+
+import cn from 'clsx';
+
 import { Button } from 'src/components/Button/Button';
 import { Icon } from 'src/components/Icon/Icon';
 import { Input } from 'src/components/Input/Input';
-
+import CartIcon from 'src/stories/assets/cart.svg';
 import MinusIcon from 'src/stories/assets/minus.svg';
 import PlusIcon from 'src/stories/assets/plus.svg';
-import CartIcon from 'src/stories/assets/cart.svg';
 
-import './ButtonCart.css';
+import s from './ButtonCart.module.scss';
 
 interface ButtonCartProps {
   className?: string;
@@ -25,8 +26,8 @@ export const ButtonCart = (props: ButtonCartProps) => {
 
   if (countProducts) {
     return (
-      <div className={cn('ButtonCart', className)}>
-        <div className={cn('ButtonCart--controls', className)}>
+      <div className={cn(s.ButtonCart, className)}>
+        <div className={cn(s.ButtonCartControls, className)}>
           <Icon
             Svg={MinusIcon}
             clickable
@@ -62,7 +63,7 @@ export const ButtonCart = (props: ButtonCartProps) => {
 
   return (
     <div
-      className={cn('ButtonCart', className)}
+      className={cn(s.ButtonCart, className)}
       onClick={onClick ? onClick : undefined}
     >
       <Button addonLeft={<CartIcon width={20} height={20} />}>

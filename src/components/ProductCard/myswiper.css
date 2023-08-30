@@ -1,0 +1,20 @@
+.swiper-container {
+  width: 100%;
+  margin: 1px;
+  border-radius: 1em 1em 0 0;
+}
+
+.swiper-wrapper .swiper-slide {
+  width: 100% !important;
+  object-fit: cover;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 28px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.35);
+  padding: 10px;
+  border-radius: 6px;
+  color: rgba(0, 0, 0, 0.75);
+}

@@ -1,5 +1,6 @@
-.Modal--wrapper {
-  background-color: rgba(0, 0, 0, 0.15);
+@import '../../mixins';
+
+.ModalWrapper {
   position: fixed;
   left: 0;
   right: 0;
@@ -10,6 +11,7 @@
   justify-content: center;
   padding: 24px;
   z-index: 10;
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .Modal {
@@ -27,9 +29,11 @@
   border-radius: 1em;
   font-family: 'Open Sans', arial, sans-serif;
   font-size: 14px;
+
+  @include theme(background-color, mainBg);
 }
 
-.Modal--header {
+.ModalHeader {
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -37,7 +41,7 @@
   width: 100%;
 }
 
-.Modal--content {
+.ModalContent {
   margin-top: 20px;
   /* padding-top: 20px; */
   /* display: flex; */
@@ -48,13 +52,13 @@
   overflow: auto;
 }
 
-.Modal--close-icon {
+.ModalCloseIcon {
   position: absolute;
   top: -4px;
   right: -4px;
   display: flex;
 }
 
-.modal-open {
+.ModalOpen {
   overflow: hidden;
 }

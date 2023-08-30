@@ -1,3 +1,5 @@
+@import '../../mixins';
+
 .Button {
   display: flex;
   justify-content: center;
@@ -10,54 +12,54 @@
   gap: 8px;
   line-height: 1.4;
   transition: opacity 0.2s ease;
-  min-width: 100px;
+  /* min-width: 100px; */
 }
 .Button:hover {
   opacity: 0.8;
 }
-.Button--fullWidth {
+.fullWidth {
   width: 100%;
 }
-.Button--addon {
+.addon {
   display: flex;
 }
-.Button--square {
+.square {
   border-radius: 0;
 }
-.Button--normal {
-  background-color: var(--button-normal-background-color);
+.normal {
+  @include theme(background-color, accent);
 }
-.Button--success {
+.success {
   background-color: #0cb603;
 }
-.Button--error {
+.error {
   background-color: #f02727;
 }
-.Button--primary {
+.primary {
   color: white;
 }
-.Button--secondary {
+.secondary {
   color: #333;
   background-color: transparent;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
-.Button--text {
+.text {
   color: #1ea7fd;
   background-color: transparent;
 }
-.Button--s {
+.s {
   font-size: 12px;
   padding: 10px;
 }
-.Button--m {
+.m {
   font-size: 14px;
   padding: 12px;
 }
-.Button--l {
+.l {
   font-size: 16px;
   padding: 14px;
 }
-.Button--spinner {
+.ButtonSpinner {
   animation: button-spinner 0.75s linear infinite;
 }
 

@@ -13,7 +13,7 @@ import ProductImg1 from 'src/stories/assets/product1.jpg';
 import ProductImg2 from 'src/stories/assets/product2.jpg';
 import ProductImg3 from 'src/stories/assets/product3.jpg';
 
-import './Main.css';
+import s from './Main.module.scss';
 
 interface MainProps {
   className?: string;
@@ -75,9 +75,9 @@ export const Main = (props: MainProps) => {
   useInfiniteScroll({ cb: handleIntersection, triggerRef });
 
   return (
-    <div className={cn('Main--wrapper', className)}>
-      <div className={cn('Main')}>
-        <div className={cn('Main--products')}>
+    <div className={cn(s.MainWrapper, className)}>
+      <div className={cn(s.Main)}>
+        <div className={cn(s.MainProducts)}>
           {smallProducts.map((product) => (
             <ProductCard
               key={product.id}
@@ -89,7 +89,7 @@ export const Main = (props: MainProps) => {
             />
           ))}
         </div>
-        <div className={cn('Main--products')}>
+        <div className={cn(s.MainProducts)}>
           {products.map((product) => (
             <ProductCard
               key={product.id}
@@ -103,7 +103,7 @@ export const Main = (props: MainProps) => {
           ))}
         </div>
       </div>
-      <div className={cn('Main--trigger')} ref={triggerRef}></div>
+      <div className={cn(s.MainTrigger)} ref={triggerRef}></div>
     </div>
   );
 };
